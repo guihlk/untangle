@@ -185,7 +185,7 @@ def parse(filename, **parser_features):
         parser.setFeature(getattr(handler, feature), value)
     sax_handler = Handler()
     parser.setContentHandler(sax_handler)
-    if is_string(filename) and (os.path.exists(filename) or is_url(filename)):
+    if len(filename <= 260) and is_string(filename) and (os.path.exists(filename) or is_url(filename)):
         parser.parse(filename)
     else:
         if hasattr(filename, 'read'):
